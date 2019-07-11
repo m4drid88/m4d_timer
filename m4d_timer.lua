@@ -1,14 +1,14 @@
-function timer ()
-    gametime = GetGameTimer()
+function timer()
+    gameTime = GetGameTimer()
     seconds = 20 -- max time (seconds) you want to set
-    printtime = segundos
+    printTime = seconds
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            if printtime > 0 then
-                diftime = GetGameTimer() - gametime
-                printtime = math.floor(seconds - (diftime/1000))
-                drawTxt("Time remaining: " .. printtime .. " seconds")
+            if printTime > 0 then
+                difTime = GetGameTimer() - gameTime
+                printTime = math.floor(seconds - (difTime/1000))
+                drawTxt("Time remaining: " .. printTime .. " seconds")
             else
                 Citizen.Wait(1000)
             end
@@ -17,7 +17,7 @@ function timer ()
 end
 
 RegisterCommand("timer", function()
-    cronometer()
+    timer()
 end)
 
 function drawTxt(content)
